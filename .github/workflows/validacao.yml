@@ -1,0 +1,22 @@
+name: Validação de Código
+on:
+    push:
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "Iniciando o Workflow"
+            - name: Checkout
+              uses: actions/checkout@v5
+            - name: Exibir Informações
+              run: |
+                echo "Repositório atual: ${{ github.repository }}"
+                echo "Acionado por: ${{ github.actor }}"
+            - name: Verificar se README.md existe
+              run: |
+                if [ -f "README.md" ]; then
+                    echo "O arquivo README.md foi encontrado."
+                else
+                    echo "Erro: README.md não existe!"
+                    exit 1
+                fi
