@@ -1,4 +1,4 @@
-name: validaco-de-codigo
+name: validacao-de-codigo
 on:
     push:
 jobs:
